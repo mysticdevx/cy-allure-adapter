@@ -1,5 +1,5 @@
 module.exports = {
-    stepDefinitions: ["cypress/e2e/steps/**/*.steps.ts"],
+    stepDefinitions: ["cypress/e2e/steps/**/*.ts"],
     filterSpecs: true,
     omitFiltered: true,
     messages: {
@@ -7,7 +7,7 @@ module.exports = {
         output: `cypress/cucumber-json/output.ndjson`,
     },
     pretty: {
-        enabled: true
+        enabled: false
     },
     json: {
         enabled: true,

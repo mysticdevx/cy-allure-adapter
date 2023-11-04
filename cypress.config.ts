@@ -12,6 +12,12 @@ export default defineConfig({
     tmsPrefix: 'http://jira.com/tms/',
     allure: true,
     allureResults: 'allure-results',
+    allureAttachRequests: true,
+    allureShowTagsInTitle: false,
+    allureAddNonSpecialTags: true,
+    cucumber: true,
+    omitFiltered: true,
+    filterSpecs: true,
   },
   e2e: {
     baseUrl: 'https://www.demoblaze.com/',
@@ -19,10 +25,13 @@ export default defineConfig({
     excludeSpecPattern: '*.ts',
     supportFile: 'cypress/support/e2e.ts',
     async setupNodeEvents(cypressOn, config) {
-      const on = require("cypress-on-fix")(cypressOn);
+      const on = require('cypress-on-fix')(cypressOn);
       await addCucumberPreprocessorPlugin(on, config);
 
-      const bundler = createBundler({plugins: [createEsbuildPlugin(config)],});
+      const bundler = createBundler({
+        define: {global: 'window'},
+        plugins: [createEsbuildPlugin(config)],
+      });
 
       on('file:preprocessor', bundler);
 

@@ -6,3 +6,4 @@ Feature: Api request feature
   @issue("ABC-1234")
   Scenario: Make an api request and attach the response to the report
     Given make an api request
+    And log anything

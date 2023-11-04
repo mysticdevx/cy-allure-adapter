@@ -3,3 +3,4 @@ node_modules
 allure-results
 cypress/cucumber-json
 cypress/screenshots
+#allure-report

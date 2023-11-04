@@ -1,4 +1,4 @@
-import { attach, DataTable, Given, Then } from '@badeball/cypress-cucumber-preprocessor';
+import { DataTable, Given, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 Given(/^visit base url$/, () => {
   cy.visit('/');
@@ -15,7 +15,9 @@ Then(/^I log below datatable$/, (datatable: DataTable) => {
 });
 
 Given(/^make an api request$/, () => {
-  cy.request('https://jsonplaceholder.typicode.com/todos/1').then((response) => {
-    cy.log(response.body.title);
-  });
+  cy.request('https://jsonplaceholder.typicode.com/todos/1');
+});
+
+Given(/^log anything$/, () => {
+  cy.log('log anything step');
 });
