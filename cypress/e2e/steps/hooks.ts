@@ -1,8 +1,6 @@
 import { After, Before } from '@badeball/cypress-cucumber-preprocessor';
 import { HooksHelper } from '../../support/hooks.helper';
 
-
-
 Before(() => {
   HooksHelper.allureReportHelper();
 });
