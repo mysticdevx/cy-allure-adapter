@@ -1,5 +1,5 @@
 @any-tag-feature-level
-@parentSuite("common-parent-suite") @suite("regular-suite") @subSuite("sub-suite")
+@parentSuite("common-parent-suite") @suite("regular-suite") @subSuite("regular")
 Feature: Regular feature file
 
   @issue("ABC-123456")
@@ -7,10 +7,25 @@ Feature: Regular feature file
     Given visit base url
     Then I should see "https://www.demoblaze.com/" in the browser url
 
+  @issue("ABC-123456")
+  Scenario: Regular passing scenario with chained commands
+    Given visit base url
+    And use chained cypress command
+    Then verify items
+
+  @issue("ABC-123457")
+  Scenario: Regular passing scenario with cy session
+    Given visit base url
+    And use session command
+    When visit base url
+    And use chained cypress command
+    Then verify items
+
   @any-scenario-level-tag
   @issue("ABC-1235")
   Scenario: Regular failing scenario
     Given visit base url
+    And log anything
     Then I should see "https://www.google.com/" in the browser url
 
   @retries(2)
